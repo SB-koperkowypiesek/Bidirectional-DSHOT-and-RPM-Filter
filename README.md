@@ -1,7 +1,9 @@
 # Bidirectional-DSHOT-and-RPM-Filter
 
-Bidirectional DSHOT and RPM Filter implementation, for stm32F40X
-Probably you can easily adapt it to your MCU.
+Bidirectional DSHOT and RPM Filter implementation for stm32F40X MCU.
+Probably you can easily adapt it to your MCU's model. 
+
+bDSHOT overview and implementation described on [my blog](https://symonb.github.io/docs/drone/ESC/ESC_prot_impl_2_2).
 
 ## BDSHOT
 
@@ -9,7 +11,7 @@ BDShot implementation based on: [great description](https://brushlesswhoop.com/d
 
 Theoretically code is correct for all DShot modes (300 600 1200). However, it was tested with [BlueJey](https://github.com/mathiasvr/bluejay) ESC software which handle maximally DShot600.
 
-For BDShot bitbanging (manually changing GPIOs values) was implemented. There are two options of bitbanging. Tests are required to decide which is more reliable.
+For BDShot bitbanging (manually changing GPIOs values) was implemented. There are two options of bitbanging. More tests are required to decide which is more reliable.
 
 Version 1:
 
@@ -39,4 +41,4 @@ Since we know the exact rpm - notches are narrow (Q = 500).
 
 Notches are designed as biquad filters based on this [description](http://shepazu.github.io/Audio-EQ-Cookbook/audio-eq-cookbook.html) and betaflight code. For each iteration new coefficients of the notches are computed and updated.
 
-Tested in flight but only for low PID frequency. More test required but at least it doesn't crash your drone :).
+Tested in flight but only with one drone (use with caution!). More test required but at least it doesn't crash your drone :).
